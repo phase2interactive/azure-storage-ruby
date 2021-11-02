@@ -623,7 +623,7 @@ module Azure::Storage
           value = value.gsub("'", "''")
 
           # Encode the special URL characters
-          value = URI.escape(value)
+          value = URI::DEFAULT_PARSER.escape(value) # URI.escape(value) is obsolete
 
           value
         end
